@@ -2,15 +2,6 @@ name: Run Other Workflows
 
 on:
   workflow_dispatch:
-    # inputs:
-    #   workflow1:
-    #     description: 'First Workflow to Run'
-    #     required: true
-    #     default: 'print_hello.yaml' # Default first workflow to run
-    #   workflow2:
-    #     description: 'Second Workflow to Run'
-    #     required: true
-    #     default: 'print_name.yaml' # Default second workflow to run
 
 jobs:
   run_workflows:
@@ -25,7 +16,7 @@ jobs:
           curl -X POST \
             -H "Authorization: token $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.workflow1 }}/dispatches \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/print_hello.yaml/dispatches \
             -d '{"ref": "main"}'
 
       - name: Run Second Workflow
@@ -35,5 +26,5 @@ jobs:
           curl -X POST \
             -H "Authorization: token $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.workflow1 }}/dispatches \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/print_name.yaml/dispatches \
             -d '{"ref": "main"}'
