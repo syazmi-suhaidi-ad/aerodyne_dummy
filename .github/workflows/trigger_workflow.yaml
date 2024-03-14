@@ -8,11 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Hello World Workflow
-        uses: actions/workflow-dispatch@v2
-        with:
-          workflow: print_hello.yaml
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/{workflow_id}/dispatches \
+            -d '{"ref":"main"}'
+        env:
+          workflow_id: 8274438780
 
       - name: Trigger Hello My Name Workflow
-        uses: actions/workflow-dispatch@v2
-        with:
-          workflow: print_name.yaml
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/{workflow_id}/dispatches \
+            -d '{"ref":"main"}'
+        env:
+          workflow_id: 8274438779
