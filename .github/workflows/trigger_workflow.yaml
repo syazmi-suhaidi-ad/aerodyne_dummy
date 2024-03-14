@@ -1,12 +1,9 @@
-name: Run Other Workflows
+name: Run Workflows
 
 on:
   workflow_dispatch:
 
 jobs:
-  run_hello_world:
+  trigger_workflow:
     name: Run First Workflow
     uses: ./.github/workflows/print_hello.yaml
-  run_print_name:
-    name: Run Second Workflow
-    uses: ./.github/workflows/print_name.yaml
