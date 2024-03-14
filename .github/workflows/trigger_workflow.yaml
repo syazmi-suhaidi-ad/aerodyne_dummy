@@ -4,12 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_workflows:
-    runs-on: ubuntu-latest
-    permissions: write-all
-
-    steps:
-      - name: Run First Workflow
-        uses: ./.github/workflows/print_hello.yaml
-      - name: Run Second Workflow
-        uses: ./.github/workflows/print_name.yaml
+  run_hello_world:
+    name: Run First Workflow
+    uses: ./.github/workflows/print_hello.yaml
+  run_print_name:
+    name: Run Second Workflow
+    uses: ./.github/workflows/print_name.yaml
