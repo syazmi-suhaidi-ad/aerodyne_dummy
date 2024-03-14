@@ -7,3 +7,14 @@ jobs:
   trigger_workflow:
     name: Run First Workflow
     uses: ./.github/workflows/print_hello.yaml
+    # Add the `on.workflow_call` trigger
+    on:
+      workflow_call:
+        inputs:
+          source_branch:
+            description: 'Source branch name'
+            required: true
+            default: 'main'
+          sha:
+            description: 'SHA of the commit'
+            required: true
