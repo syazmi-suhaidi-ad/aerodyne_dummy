@@ -3,14 +3,13 @@ name: Hello My Name Workflow
 on:
   workflow_dispatch:
     inputs:
-      trigger:
-        description: 'Trigger manually'
-        default: 'true'
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Say Hello
         run: echo "Hello, my name is Syazmi"
