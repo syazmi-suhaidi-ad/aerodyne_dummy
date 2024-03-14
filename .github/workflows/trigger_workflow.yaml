@@ -2,19 +2,20 @@ name: Run Other Workflows
 
 on:
   workflow_dispatch:
-    inputs:
-      workflow1:
-        description: 'First Workflow to Run'
-        required: true
-        default: 'print_hello.yaml' # Default first workflow to run
-      workflow2:
-        description: 'Second Workflow to Run'
-        required: true
-        default: 'print_name.yaml' # Default second workflow to run
+    # inputs:
+    #   workflow1:
+    #     description: 'First Workflow to Run'
+    #     required: true
+    #     default: 'print_hello.yaml' # Default first workflow to run
+    #   workflow2:
+    #     description: 'Second Workflow to Run'
+    #     required: true
+    #     default: 'print_name.yaml' # Default second workflow to run
 
 jobs:
   run_workflows:
     runs-on: ubuntu-latest
+    permissions: write-all
 
     steps:
       - name: Run First Workflow
