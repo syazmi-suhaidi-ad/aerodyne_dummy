@@ -1,15 +1,16 @@
 name: Hello World Workflow
 
 on:
-  push:
-    branches:
-      # - main  # Trigger the workflow on pushes to the main branch
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: 'Trigger manually'
+        default: 'true'
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    permissions: write-all
 
     steps:
       - name: Say Hello
-        run: echo "Hello, World! :rocket:" >> $GITHUB_STEP_SUMMARY
+        run: echo "Hello, World!"
