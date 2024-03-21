@@ -1,5 +1,4 @@
 name: Hello World Workflow
-
 on:
   workflow_dispatch:
   workflow_call:
@@ -11,12 +10,11 @@ on:
       sha:
         description: 'SHA of the commit'
         required: true
-
+type: workflow # Add this line specifying the type of the workflow
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     permissions: write-all
-
     steps:
       - name: Say Hello
         run: echo "Hello, World! :rocket:" >> $GITHUB_STEP_SUMMARY
