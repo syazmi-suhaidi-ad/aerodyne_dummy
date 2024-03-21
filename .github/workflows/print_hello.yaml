@@ -2,6 +2,15 @@ name: Hello World Workflow
 
 on:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      source_branch:
+        description: 'Source branch name'
+        required: true
+        default: 'main'
+      sha:
+        description: 'SHA of the commit'
+        required: true
 
 jobs:
   hello_world_job:
